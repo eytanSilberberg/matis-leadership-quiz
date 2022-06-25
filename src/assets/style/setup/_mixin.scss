@@ -1,0 +1,49 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+
+    >* {
+        grid-column: 2;
+    }
+
+    >*.full {
+        grid-column: 1 / -1;
+    }
+
+    >*:not(.full) {
+        display: grid;
+        grid-auto-flow: dense;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+
+}
+
+@mixin for-mobile-layout {
+    @media (max-width: $break-narrow) {
+        @content;
+    }
+}
+
+@mixin for-narrow-layout {
+    @media (min-width: $break-narrow) {
+        @content;
+    }
+}
+
+@mixin for-normal-layout {
+    @media (min-width: $break-normal) {
+        @content;
+    }
+}
+
+@mixin for-wide-layout {
+    @media (min-width: $break-wide) {
+        @content;
+    }
+}
+
+@mixin layoutGTC($max) {
+    grid-template-columns:
+        minmax($layoutPadding, 1fr) minmax(auto, $max) minmax($layoutPadding, 1fr);
+}

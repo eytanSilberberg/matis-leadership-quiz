@@ -1,0 +1,15 @@
+header {
+    background-color: antiquewhite;
+
+    padding: $layoutPadding 0;
+
+    section {
+        grid-column: 2;
+
+        nav {
+            a:first-of-type {
+                margin-inline-end: 2rem;
+            }
+        }
+    }
+}
