@@ -1,14 +1,55 @@
 header {
     background-color: antiquewhite;
-
     padding: $layoutPadding 0;
+
+    .clear-screen {
+        // background-color: aqua;
+        inset: 0;
+        position: absolute;
+    }
 
     section {
         grid-column: 2;
+        justify-content: space-between;
 
-        nav {
-            a:first-of-type {
-                margin-inline-end: 2rem;
+        @include for-mobile-layout {
+
+            nav {
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                right: 0%;
+                width: 150px;
+                background-color: aquamarine;
+                top: 0;
+                align-items: center;
+                min-height: 100vh;
+                max-height: fit-content;
+                transform: translateX(100%);
+
+                a {
+                    padding: 10px 0;
+                }
+
+                &.open {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+
+
+        @include for-narrow-layout {
+            nav {
+                position: static;
+
+                a:first-of-type {
+                    margin-inline-end: 2rem;
+                }
+            }
+
+            button {
+                display: none;
             }
         }
     }

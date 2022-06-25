@@ -4,17 +4,6 @@
 
     >* {
         grid-column: 2;
-    }
-
-    >*.full {
-        grid-column: 1 / -1;
-    }
-
-    >*.full {
-        display: grid;
-        // grid-auto-flow: dense;
-        // grid-template-columns: repeat(6, 1fr);
-        grid-template-columns: $layoutPadding 1fr $layoutPadding;
 
         @include for-narrow-layout {
             @include layoutGTC($break-narrow);
@@ -29,15 +18,38 @@
         }
     }
 
-    @include for-narrow-layout {
-        @include layoutGTC($break-narrow);
+    >*.full {
+        grid-column: 1 / -1;
     }
 
-    @include for-normal-layout {
-        @include layoutGTC($break-normal);
+    >*.full {
+        display: grid;
+        // grid-auto-flow: dense;
+        // grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: $layoutPadding 1fr $layoutPadding;
+
+        // @include for-narrow-layout {
+        //     @include layoutGTC($break-narrow);
+        // }
+
+        // @include for-normal-layout {
+        //     @include layoutGTC($break-normal);
+        // }
+
+        // @include for-wide-layout {
+        //     @include layoutGTC($break-wide);
+        // }
     }
 
-    @include for-wide-layout {
-        @include layoutGTC($break-wide);
-    }
+    // @include for-narrow-layout {
+    //     @include layoutGTC($break-narrow);
+    // }
+
+    // @include for-normal-layout {
+    //     @include layoutGTC($break-normal);
+    // }
+
+    // @include for-wide-layout {
+    //     @include layoutGTC($break-wide);
+    // }
 }
