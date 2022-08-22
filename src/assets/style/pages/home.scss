@@ -1,0 +1,185 @@
+// .home-page {
+//     grid-column: 2;
+// }
+
+// .intro {
+//     @include mobile-layout {
+//         background-color: aqua;
+//         display: block;
+
+//     }
+
+//     color: $pri-color;
+//     display: flex;
+//     // margin-top: rem(50px);
+//     justify-content: center;
+//     align-items: center;
+//     gap: rem(136px);
+//     height: 80vh;
+
+//     .intro-decoration {
+//         position: relative;
+//         display: flex;
+//         flex-direction: row-reverse;
+//         height: 500px;
+//         // width: 500px;
+//         display: flex;
+
+//         .mati {
+//             // position: absolute;
+//             align-self: center;
+//             height: 400px;
+//             margin-left: -25%;
+
+
+//             // right: 10%;
+//             // top: 25%;
+//         }
+
+//         .decoration-color {
+//             height: 100%;
+//             width: 250px;
+//         }
+
+//     }
+
+//     .intro-text {
+//         display: flex;
+//         flex-direction: column;
+//         // align-items: center;
+//         // align-self: center;
+//         justify-content: space-between;
+//         padding: rem(25px) rem(20px);
+//         // max-width: 400px;
+//         background-color: $decoration-color;
+//         border-radius: 15px;
+//         // align-self: stretch;
+
+
+//         p {
+//             // padding: 0 50px;
+//             display: flex;
+//             flex-direction: column;
+//             // width: 60%;
+
+//             span {
+//                 font-size: 2rem;
+//                 margin-bottom: rem(30px);
+//             }
+//         }
+
+//         button {
+//             @include button();
+//             align-self: flex-end;
+//             border: 2px solid $pri-color;
+//         }
+//     }
+// }
+
+.hero {
+    width: 100%;
+
+    // grid-column: 1/-1;
+
+    .banner {
+        grid-column: 1/-1;
+        width: 100%;
+        height: rem(200px);
+        object-fit: fill;
+    }
+
+    @include for-normal-layout {
+        .banner {
+            height: rem(300px);
+        }
+    }
+}
+
+.intro {
+    // padding-top: rem(20px);
+    max-width: 100%;
+    grid-column: 2;
+    display: flex;
+    line-height: rem(22px);
+    justify-content: center;
+    height: 85vh;
+
+    .intro-text {
+        width: 100%;
+        background-color: $decoration-color;
+        height: fit-content;
+        padding: rem(15px) rem(20px);
+        display: flex;
+        flex-direction: column;
+
+        p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        button {
+            @include button;
+            align-self: flex-end;
+        }
+    }
+
+    .intro-decoration {
+        display: none
+    }
+
+    @include for-narrow-layout {
+        justify-content: space-between;
+        align-items: center;
+        gap: rem(10px);
+        grid-column: 1/-1;
+
+        .intro-text {
+            width: rem(320px);
+        }
+
+        .intro-decoration {
+            width: rem(250px);
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            position: relative;
+
+            .decoration-color {
+                height: rem(350px);
+                width: 150px;
+            }
+
+            img {
+                width: 200px;
+                height: 300px;
+                position: absolute;
+                right: -20px;
+
+            }
+        }
+    }
+
+    @include for-wide-layout {
+        justify-content: center;
+        gap: rem(270px);
+
+        .intro-text {
+            width: rem(400px)
+        }
+    }
+
+
+
+}
+
+.pages-button-wrapper {
+    text-align: center;
+
+    button {
+        @include button;
+        margin: 0 rem(10px);
+
+    }
+
+    margin: rem(20px) 0;
+}

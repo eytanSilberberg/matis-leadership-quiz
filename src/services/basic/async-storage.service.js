@@ -1,5 +1,6 @@
 export const storageService = {
     query,
+    saveAll,
     post,
     get,
     put,
@@ -16,9 +17,9 @@ function query(entityType) {
 }
 
 async function post(entityType, newEntity) {
-    const users = await query(entityType)
-    users.push(newEntity)
-    _save(entityType, users)
+    const collection = await query(entityType)
+    collection.push(newEntity)
+    _save(entityType, collection)
     return newEntity
 }
 
@@ -26,7 +27,9 @@ function _save(entityType, entities) {
     localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
-
+async function saveAll(entityType, entities) {
+    _save(entityType, entities)
+}
 
 function get(entityType, entityId) {
     return query(entityType)

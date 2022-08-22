@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader />
-      <main>
+      <main className=''>
         <Routes>
           {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
           {/* forInner routes in react-router-dom 6 make an external route here and open scope for it, and include inside */}

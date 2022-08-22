@@ -1,10 +1,31 @@
+html {
+    font-size: rem(14px);
+
+
+
+    @include for-normal-layout {
+        font-size: rem(16px);
+    }
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
+
+    font-size: rem(14px);
+
+    @include for-wide-layout {
+        font-size: rem(16px);
+    }
+
+    direction: rtl;
     margin: 0;
     font-family: roboto-regular;
+    line-height: rem(25px);
+    background-color: $app-clr;
+
 }
 
 a {
@@ -19,4 +40,16 @@ button {
     &:hover {
         cursor: pointer;
     }
+}
+
+main {
+    grid-column: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
 }

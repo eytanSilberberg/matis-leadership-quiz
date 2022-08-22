@@ -1,0 +1,54 @@
+.shadow {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.visible {
+        display: flex;
+        opacity: 1;
+
+        background-color: $shadow-clr;
+        // &.show-content {
+
+        // }
+
+        z-index: 2;
+    }
+
+    &.hidden {
+        opacity: 0;
+        z-index: -1;
+        background-color: inherit;
+    }
+
+    transition: all 1s;
+
+}
+
+.form-wrapper {
+    // width: rem(250px);
+    width: 100%;
+    display: flex;
+    background-color: bisque;
+    padding: 30px;
+
+    @include for-narrow-layout {
+        width: rem(600px);
+    }
+
+    form {
+        padding: rem(20px) rem(10px);
+        background-color: $app-clr;
+        display: flex;
+        flex-direction: column;
+        grid-column: 2;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}

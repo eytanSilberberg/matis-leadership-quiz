@@ -10,9 +10,14 @@
 @import './basic/layout';
 
 // PAGES
+@import './pages/home.scss';
+@import './pages/about.scss';
 
 
 
 // CMPS
 
-@import './cmps/header.scss'
+@import './cmps/header.scss';
+@import './cmps/questions.scss';
+@import './cmps/intro.scss';
+@import './cmps/form.scss';

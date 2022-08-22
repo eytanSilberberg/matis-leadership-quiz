@@ -1,56 +1,15 @@
 header {
-    background-color: antiquewhite;
-    padding: $layoutPadding 0;
+    height: 15vh;
 
-    .clear-screen {
-        // background-color: aqua;
-        inset: 0;
-        position: absolute;
+    // position: absolute;
+    // width: 100%;
+    background-color: #013553;
+    // height: rem(100px);
+    display: flex;
+    z-index: 1;
+
+    img {
+        height: 100%;
     }
 
-    section {
-        grid-column: 2;
-        justify-content: space-between;
-
-        @include for-mobile-layout {
-
-            nav {
-                position: fixed;
-                display: flex;
-                flex-direction: column;
-                right: 0%;
-                width: 150px;
-                background-color: aquamarine;
-                top: 0;
-                align-items: center;
-                min-height: 100vh;
-                max-height: fit-content;
-                transform: translateX(100%);
-
-                a {
-                    padding: 10px 0;
-                }
-
-                &.open {
-                    transform: translateX(0);
-                }
-            }
-        }
-
-
-
-        @include for-narrow-layout {
-            nav {
-                position: static;
-
-                a:first-of-type {
-                    margin-inline-end: 2rem;
-                }
-            }
-
-            button {
-                display: none;
-            }
-        }
-    }
 }

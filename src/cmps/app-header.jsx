@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import Logo from '../assets/imgs/blue_logo.png'
 
 export const AppHeader = () => {
 
@@ -15,20 +16,17 @@ export const AppHeader = () => {
             setMenu(false)
         }
     }
+
     useEffect(() => {
         window.addEventListener('resize', checkSize)
     }, [])
 
-    return <header className='full'>
-        {isMenuOpen && <div onClick={toggleMenu} className='clear-screen'></div>}
-        <section className='header-content-wrapper flex'>
-            <div className='logo'>Logo</div>
-            <nav className={isMenuOpen ? 'open' : ''}>
-                <NavLink to={'/'}>Home</NavLink>
-                <NavLink to={'/about'}>About</NavLink>
-            </nav>
-            <button onClick={toggleMenu}>☰</button>
-
-        </section>
+    const setHeight = () => {
+        const height = window.innerHeight
+        const requestedHeight = 0.2 / height * 100
+        console.log(requestedHeight);
+    }
+    return <header style={{ height: `${setHeight()}vh` }}>
+        <img src={Logo} alt="" />
     </header>
 }
