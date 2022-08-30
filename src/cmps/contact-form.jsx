@@ -2,7 +2,7 @@ import React from "react"
 import { useForm } from "../hooks/useForm"
 
 export const ContactForm = ({ submitForm }) => {
-    const [contactForm, handleContactForm] = useForm({ name: '', email: '' })
+    const [contactForm, handleContactForm] = useForm({ name: '', email: '', })
     const onSubmitForm = (ev) => {
         ev.preventDefault()
         submitForm(contactForm)
@@ -13,7 +13,6 @@ export const ContactForm = ({ submitForm }) => {
 
         <form onSubmit={onSubmitForm}>
             <h1>את/ה עוד רגע מסיים!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime expedita facere provident rem voluptas eos, magni necessitatibus cum impedit autem nostrum similique quos laborum minima est. Voluptatum, veritatis repellendus. Fugiat.</p>
             <label>
                 <span>נא הזן את האימייל שלך:</span>
                 <input name="email" type="email" required onChange={handleContactForm} />
@@ -22,6 +21,7 @@ export const ContactForm = ({ submitForm }) => {
                 <span>נא הזמן את השם המלא שלך:</span>
                 <input name="name" type="text" required onChange={handleContactForm} />
             </label>
+            <h3>שליחת השאלון מהווה הסכמה לקבלת מייל חוזר עם ניתוח השאלון.</h3>
             <button>שלח</button>
         </form>
     </div>

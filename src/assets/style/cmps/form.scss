@@ -28,15 +28,23 @@
 }
 
 .form-wrapper {
+    color: black;
     // width: rem(250px);
     width: 100%;
     display: flex;
-    background-color: bisque;
-    padding: 30px;
 
     @include for-narrow-layout {
-        width: rem(600px);
+        justify-content: center;
     }
+
+    @include normal-layout {
+        justify-content: flex-start;
+
+    }
+
+    // background-color: bisque;
+    // padding: 30px;
+
 
     form {
         padding: rem(20px) rem(10px);
@@ -45,10 +53,36 @@
         flex-direction: column;
         grid-column: 2;
 
+        @include for-narrow-layout {
+            width: rem(600px);
+        }
+
+        h1 {
+            margin-bottom: rem(30px);
+        }
+
         label {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
+        }
+
+        input[type=text],
+        input[type=email] {
+            height: 30px;
+            font-size: 16px;
+            margin: rem(10px) 0;
+        }
+
+        button {
+            @include for-narrow-layout {
+                align-self: flex-end;
+            }
+
+
+            margin-top: rem(10px);
+            @include button
         }
     }
 }

@@ -1,9 +1,13 @@
 html {
     font-size: rem(14px);
 
-
+    font-family: 'heebo';
 
     @include for-normal-layout {
+        font-size: rem(16px);
+    }
+
+    @include for-wide-layout {
         font-size: rem(16px);
     }
 }
@@ -13,16 +17,17 @@ html {
 }
 
 body {
+    color: $pri-color;
+    font-family: 'heebo', sans-serif;
 
-    font-size: rem(14px);
 
-    @include for-wide-layout {
-        font-size: rem(16px);
-    }
+
+    // @include for-wide-layout {
+    //     font-size: rem(16px);
+    // }
 
     direction: rtl;
     margin: 0;
-    font-family: roboto-regular;
     line-height: rem(25px);
     background-color: $app-clr;
 

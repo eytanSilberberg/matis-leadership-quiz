@@ -1,5 +1,10 @@
 header {
-    height: 15vh;
+    height: rem(80px);
+
+    @include for-narrow-layout {
+        height: 15vh;
+
+    }
 
     // position: absolute;
     // width: 100%;

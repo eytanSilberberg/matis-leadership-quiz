@@ -9,8 +9,8 @@ export const QuestionPreview = ({ question, setAnswer }) => {
         <div className="answers-wrapper">
             {question.answers.map((answer, idx) => {
                 return <div key={idx} className="answer-wrapper">
-                    <span>{answer.answerText}</span>
                     <div style={{ borderRadius: '50%' }} onClick={() => setAnswer(answer.value, question._id)} className={`radio-button ${answer.value === question.answerValue ? 'picked' : ''}`}></div>
+                    <span>{answer.answerText}</span>
                 </div>
             })}
         </div>

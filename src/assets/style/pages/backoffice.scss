@@ -1,0 +1,30 @@
+.back-office {
+    .options-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: rem(50px);
+        gap: rem(30px);
+        margin-bottom: rem(30px);
+
+        @include narrow-layout {
+            gap: rem(35px);
+        }
+
+        a {
+            @include button;
+            padding: rem(20px) rem(40px);
+
+            @include narrow-layout {
+                padding: rem(40px) rem(60px);
+                font-size: rem(25px);
+            }
+        }
+    }
+
+    .logout-button-wrapper {
+        button {
+            @include button;
+            margin-top: rem(10px);
+        }
+    }
+}

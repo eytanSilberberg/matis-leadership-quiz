@@ -24,7 +24,6 @@ export const ProgressBar = ({ questionsLength, questionsAnswered, fillAllAnswers
 
                 <Box sx={{ width: '100%' }}>
                     <LinearProgress variant="determinate" value={progress} sx={{
-                        borderRadius: 75,
                         height: 8,
                     }} />
                 </Box>

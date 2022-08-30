@@ -1,21 +1,17 @@
 
 import { HomePage } from './pages/home.page.jsx'
-import { AboutPage } from './pages/about.page.jsx'
-import { AdminPage } from './pages/admin.page.jsx'
+import { LoginPage } from './pages/login.page.jsx'
 const routes = [
     {
         path: '/',
         component: <HomePage />,
         label: 'Home 🏠',
     },
+
     {
-        path: '/about',
-        component: <AboutPage />,
-        label: 'about',
-    }, {
-        path: '/admin',
-        component: <AdminPage />,
-        label: 'admin',
+        path: '/login',
+        component: <LoginPage />,
+        label: 'login',
     }
 ]
 

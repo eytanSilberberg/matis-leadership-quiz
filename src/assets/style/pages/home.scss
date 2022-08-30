@@ -17,7 +17,7 @@
 //     gap: rem(136px);
 //     height: 80vh;
 
-//     .intro-decoration {
+//     .decoration {
 //         position: relative;
 //         display: flex;
 //         flex-direction: row-reverse;
@@ -77,21 +77,73 @@
 // }
 
 .hero {
-    width: 100%;
 
-    // grid-column: 1/-1;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    height: rem(220px);
+
+    .text-wrapper {
+        flex-grow: 1;
+        width: auto;
+        display: flex;
+        justify-content: center;
+
+        h1 {
+            padding: 0 rem(10px);
+            text-align: center;
+
+            // width: 50%;
+            display: inline-flex;
+            flex-direction: column;
+            color: $pri-color;
+            font-size: rem(18px);
+        }
+    }
+
+
+    .decoration {
+        // width: 50%;
+        height: 100%;
+
+        .mati {
+            // width: 145px;
+            height: 100%;
+            // padding-inline-end: rem(10px);
+        }
+    }
+
+    @include for-narrow-layout {
+        .text-wrapper {
+
+            h1 {
+                font-size: rem(26px);
+            }
+        }
+    }
 
     .banner {
+        height: 100%;
+        position: absolute;
+        z-index: -1;
         grid-column: 1/-1;
         width: 100%;
-        height: rem(200px);
         object-fit: fill;
     }
 
-    @include for-normal-layout {
-        .banner {
-            height: rem(300px);
+    @include for-narrow-layout {
+        .decoration {
+            display: none;
         }
+    }
+
+}
+
+@include for-narrow-layout {
+    .hero {
+        height: rem(300px);
     }
 }
 
@@ -102,7 +154,8 @@
     display: flex;
     line-height: rem(22px);
     justify-content: center;
-    height: 85vh;
+    height: 57vh;
+    margin-bottom: rem(20px);
 
     .intro-text {
         width: 100%;
@@ -117,27 +170,34 @@
             margin-bottom: 10px;
         }
 
+        .good-luck {
+            text-align: center
+        }
+
         button {
             @include button;
             align-self: flex-end;
         }
     }
 
-    .intro-decoration {
+    .decoration {
         display: none
     }
 
     @include for-narrow-layout {
+        margin: rem(50px) 0;
         justify-content: space-between;
         align-items: center;
         gap: rem(10px);
         grid-column: 1/-1;
 
         .intro-text {
-            width: rem(320px);
+            width: rem(365px);
+            padding: rem(20px) rem(15px);
+
         }
 
-        .intro-decoration {
+        .decoration {
             width: rem(250px);
             display: flex;
             align-items: center;
@@ -145,7 +205,8 @@
             position: relative;
 
             .decoration-color {
-                height: rem(350px);
+                background-color: $pri-color;
+                height: 380px;
                 width: 150px;
             }
 
@@ -159,12 +220,35 @@
         }
     }
 
+    @include for-normal-layout {
+        .intro-text {
+            width: rem(400px);
+        }
+
+
+    }
+
+
     @include for-wide-layout {
         justify-content: center;
         gap: rem(270px);
 
         .intro-text {
-            width: rem(400px)
+            width: rem(500px)
+        }
+
+        .decoration {
+            .decoration-color {
+                height: 450px;
+                width: 180px;
+            }
+
+            img {
+                width: 250px;
+                height: 380px;
+                right: -75px;
+
+            }
         }
     }
 
