@@ -22,6 +22,6 @@ export const AppHeader = () => {
             <a href="">כניסת משתמש</a>
         </nav>
         <button className='menu-sign' onClick={toggleMenu}>☰</button> */}
-        <div className={`screen ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}></div>
+        {/* <div className={`screen ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}></div> */}
     </header>
 }
