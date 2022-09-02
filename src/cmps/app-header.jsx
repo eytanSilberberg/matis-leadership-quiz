@@ -16,7 +16,7 @@ export const AppHeader = () => {
     return <header >
 
         <img onClick={goToWebsite} src={Logo} alt="" />
-        {/* <nav className={`${isMenuOpen ? 'open' : ''}`}>
+        <nav className={`${isMenuOpen ? 'open' : ''}`}>
             <a href="">ארגונים</a>
             <a href="">קהל רחב</a>
             <a href="">אודות מתי</a>
@@ -25,7 +25,7 @@ export const AppHeader = () => {
             <a href="">יצירת קשר</a>
             <a href="">כניסת משתמש</a>
         </nav>
-        <button className='menu-sign' onClick={toggleMenu}>☰</button> */}
-        {/* <div className={`screen ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}></div> */}
+        <button className='menu-sign' onClick={toggleMenu}>☰</button>
+        <div className={`screen ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}></div>
     </header>
 }
