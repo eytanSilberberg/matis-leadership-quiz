@@ -50,7 +50,6 @@ export const HomePage = () => {
         const category = requestedQuestion.category
         const allAnsweredQuestions = questions.filter(question => question.answerValue)
         scores.current = ({ ...scores.current, [category]: grade })
-        console.log(scores.current)
         questionsAnswered.current = allAnsweredQuestions.length
         setQuestions(newQuestions)
     }
@@ -59,7 +58,6 @@ export const HomePage = () => {
         const isAllQuestionsFilled = questions.every(question => question.answerValue)
         if (isAllQuestionsFilled) {
             const form = { scores: scores.current, ...contactForm }
-            console.log(form)
             await formService.save(form)
             setIsFormDone(true)
         } else {
@@ -89,7 +87,7 @@ export const HomePage = () => {
     }
     if (!questions) return <div></div>
 
-    return <div className='main-layout home'>
+    return <div className='main-layout home' >
 
         {!isFormDone && <React.Fragment>
             <div className="hero full">
@@ -123,6 +121,8 @@ export const HomePage = () => {
                             אין בשאלון תשובות נכונות או לא נכונות - לגבי כל היגד סמנו את ההערכה המילולית
                             המדויקת ביותר עבורכם.
                         </strong>
+                        <br />
+                        <br />
                         בסיום המילוי ישלח אליכם מייל עם ניתוח התוצאה האישית
                         שלכם על פי עקרונות השיטה.
                         <br />
@@ -130,7 +130,7 @@ export const HomePage = () => {
                     </p>
                     <p className='good-luck'>בהצלחה!
                         <br />
-                        ד״ר מתי הר-לב, מפתחת השיטה להתנהגות תודעתית
+                        ד״ר מתי הר-לב, מפתחת השיטה למנהיגות תודעתית
                     </p>
                     <button onClick={StartAnsweringForm}>בואו נתחיל!</button>
                 </div>}
@@ -148,6 +148,7 @@ export const HomePage = () => {
                 <ContactForm submitForm={submitForm} name='questions' />
             </React.Fragment>}
         </React.Fragment>}
+
         {isFormDone &&
             <div className='thank-you'>
                 <p>תודה שמילאת את השאלון!</p>
