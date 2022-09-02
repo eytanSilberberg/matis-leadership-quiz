@@ -9,9 +9,13 @@ export const AppHeader = () => {
     const toggleMenu = () => {
         setMenu(!isMenuOpen)
     }
+
+    const goToWebsite = () => {
+        window.location = 'http://matiharlev.com/'
+    }
     return <header >
 
-        <a href="http://matiharlev.com/"><img src={Logo} alt="" /></a>
+        <img onClick={goToWebsite} src={Logo} alt="" />
         {/* <nav className={`${isMenuOpen ? 'open' : ''}`}>
             <a href="">ארגונים</a>
             <a href="">קהל רחב</a>
