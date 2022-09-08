@@ -17,13 +17,14 @@ export const AppHeader = () => {
 
         <img onClick={goToWebsite} src={Logo} alt="" />
         <nav className={`${isMenuOpen ? 'open' : ''}`}>
-            <a href="">ארגונים</a>
-            <a href="">קהל רחב</a>
-            <a href="">אודות מתי</a>
-            <a href="">קורס דיגיטלי</a>
-            <a href="">מרכז הידע</a>
-            <a href="">יצירת קשר</a>
-            <a href="">כניסת משתמש</a>
+            <a href="https://www.matiharlev.com/organizations">ארגונים</a>
+            <a href="https://www.matiharlev.com/public">קהל רחב</a>
+            <a href="https://www.matiharlev.com/%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA">הרצאות</a>
+            <a href="https://www.matiharlev.com/about">אודות מתי</a>
+            <a href="https://www.matiharlev.com/digitalcourse">קורס דיגיטלי</a>
+            <a href="https://www.matiharlev.com/blog">מרכז הידע</a>
+            <a href="https://www.matiharlev.com/contact">יצירת קשר</a>
+            <a href=" https://www.matiharlev.com/lessons">כניסת משתמש</a>
         </nav>
         <button className='menu-sign' onClick={toggleMenu}>☰</button>
         <div className={`screen ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}></div>

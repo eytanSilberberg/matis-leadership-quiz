@@ -60,6 +60,9 @@ export const HomePage = () => {
             const form = { scores: scores.current, ...contactForm }
             await formService.save(form)
             setIsFormDone(true)
+            setTimeout(() => {
+                window.location = 'http://matiharlev.com/'
+            }, 2000)
         } else {
             showErrorMsg('נא מלא את כל השאלות')
         }
@@ -81,10 +84,10 @@ export const HomePage = () => {
         copiedQuestions.forEach(question => question.answerValue = { answerText: 'true', value: 6 })
 
     }
-    const showContent = () => {
-        let string = 'show-content'
-        return string
-    }
+    // const showContent = () => {
+    //     let string = 'show-content'
+    //     return string
+    // }
     if (!questions) return <div></div>
 
     return <div className='main-layout home' >

@@ -17,6 +17,7 @@ header {
 
     img {
         height: 100%;
+        cursor: pointer;
     }
 
     nav {
@@ -38,7 +39,9 @@ header {
         a {
             // font-size: rem(14px);
             color: white;
-            width: 100%;
+            width: fit-content;
+            margin: 0 10px;
+            word-break: keep-all;
             height: rem(50px);
             display: flex;
             align-items: center;
@@ -82,8 +85,10 @@ header {
         }
 
         nav {
+            justify-content: flex-end;
+
             position: static;
-            width: 65%;
+            width: 870px;
             flex-direction: row;
             background-color: unset;
             transform: translateX(0);
