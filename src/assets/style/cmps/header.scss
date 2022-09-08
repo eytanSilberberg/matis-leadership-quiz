@@ -47,6 +47,11 @@ header {
             align-items: center;
             justify-content: center;
 
+            &:hover {
+                color: #DFD0BB;
+            }
+
+            transition: all 0.2s ease;
 
         }
 
