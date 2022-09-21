@@ -2,7 +2,6 @@ import React from "react";
 
 
 export const QuestionPreview = ({ question, setAnswer }) => {
-
     return <div className="question-preview">
         <h1>{question.questionText}</h1>
 

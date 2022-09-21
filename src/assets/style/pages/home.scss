@@ -1,81 +1,3 @@
-// .home-page {
-//     grid-column: 2;
-// }
-
-// .intro {
-//     @include mobile-layout {
-//         background-color: aqua;
-//         display: block;
-
-//     }
-
-//     color: $pri-color;
-//     display: flex;
-//     // margin-top: rem(50px);
-//     justify-content: center;
-//     align-items: center;
-//     gap: rem(136px);
-//     height: 80vh;
-
-//     .decoration {
-//         position: relative;
-//         display: flex;
-//         flex-direction: row-reverse;
-//         height: 500px;
-//         // width: 500px;
-//         display: flex;
-
-//         .mati {
-//             // position: absolute;
-//             align-self: center;
-//             height: 400px;
-//             margin-left: -25%;
-
-
-//             // right: 10%;
-//             // top: 25%;
-//         }
-
-//         .decoration-color {
-//             height: 100%;
-//             width: 250px;
-//         }
-
-//     }
-
-//     .intro-text {
-//         display: flex;
-//         flex-direction: column;
-//         // align-items: center;
-//         // align-self: center;
-//         justify-content: space-between;
-//         padding: rem(25px) rem(20px);
-//         // max-width: 400px;
-//         background-color: $decoration-color;
-//         border-radius: 15px;
-//         // align-self: stretch;
-
-
-//         p {
-//             // padding: 0 50px;
-//             display: flex;
-//             flex-direction: column;
-//             // width: 60%;
-
-//             span {
-//                 font-size: 2rem;
-//                 margin-bottom: rem(30px);
-//             }
-//         }
-
-//         button {
-//             @include button();
-//             align-self: flex-end;
-//             border: 2px solid $pri-color;
-//         }
-//     }
-// }
-
 .hero {
 
     width: 100%;
@@ -102,6 +24,108 @@
             font-size: rem(18px);
         }
     }
+
+    .languages-wrapper {
+        background-color: $app-clr;
+        position: absolute;
+        top: 0;
+        display: flex;
+
+        button {
+            background-color: unset;
+            border: none;
+            width: rem(50px);
+        }
+
+        .languages {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+
+            li {
+                cursor: pointer;
+                width: 40px;
+                height: 20px;
+            }
+        }
+
+        &.open.rtl,
+        &.open.ltr {
+            transform: translateX(0);
+        }
+
+        transition: all 0.5s ease;
+
+
+
+    }
+
+    @include for-mobile-layout() {
+        .languages-wrapper {
+            flex-direction: row-reverse;
+
+
+
+
+            &.rtl {
+                right: 0;
+                transform: translateX(112px);
+                border-bottom-left-radius: 10px;
+                border-top-left-radius: 10px;
+
+                button {
+                    border-right: 1px solid $shadow-clr;
+                }
+
+
+
+            }
+
+            &.ltr {
+                transform: translateX(-112px);
+                left: 0;
+                border-bottom-right-radius: 10px;
+                border-top-right-radius: 10px;
+
+                button {
+                    border-left: 1px solid $shadow-clr;
+                }
+            }
+        }
+    }
+
+    @include for-narrow-layout() {
+        .languages-wrapper {
+            flex-direction: row;
+
+            &.rtl {
+                transform: translateX(-112px);
+
+                right: unset;
+                left: 0;
+                border-bottom-right-radius: 10px;
+                border-top-right-radius: 10px;
+
+                button {
+                    border-right: 1px solid $shadow-clr;
+                }
+            }
+
+            &.ltr {
+                transform: translateX(112px);
+
+                left: unset;
+                right: 0;
+                border-bottom-left-radius: 10px;
+                border-top-left-radius: 10px;
+
+                button {
+                    border-right: 1px solid $shadow-clr;
+                }
+            }
+        }
+    }
+
 
 
     .decoration {
@@ -211,11 +235,24 @@
             }
 
             img {
+
                 width: 200px;
                 height: 300px;
-                position: absolute;
-                right: -20px;
+            }
 
+            &.rtl {
+                img {
+                    position: absolute;
+                    right: -20px;
+
+                }
+            }
+
+            &.ltr {
+                img {
+                    position: absolute;
+                    left: -20px;
+                }
             }
         }
     }
@@ -246,8 +283,20 @@
             img {
                 width: 250px;
                 height: 380px;
-                right: -75px;
 
+
+            }
+
+            &.rtl {
+                img {
+                    right: -75px;
+                }
+            }
+
+            &.ltr {
+                img {
+                    left: -75px;
+                }
             }
         }
     }

@@ -26,8 +26,6 @@ export const HomePage = () => {
     const [isFormDone, setIsFormDone] = useState(false)
     const [isAnswering, setIsAnswering] = useState(false)
     const [language, setLanguage] = useState('he')
-    const [isLanguagePickerOpen, setLanguagePicker] = useState(false)
-
     const questionsAnswered = useRef(0)
     const questionsSection = useRef()
     let amountOfQuestions
@@ -50,8 +48,10 @@ export const HomePage = () => {
     ]
 
     useEffect(() => {
-
-        loadQuestionsToUse()
+        if (renderCount.current === 0) {
+            renderCount.current = 1
+            loadQuestionsToUse()
+        }
         if (language === 'he') {
             document.body.dir = 'rtl'
         } else if (language === 'en') {
@@ -66,45 +66,15 @@ export const HomePage = () => {
     // }, [])
 
     const loadQuestionsToUse = async () => {
-        questionsAnswered.current = 0
-        let questionsToUse = questions
-        if (renderCount.current === 0) {
-            renderCount.current = 1
-            questionsToUse = await questionService.query()
-            setQuestions(questionsToUse)
-            amountOfQuestions = questionsToUse.length
-        }
-        if (language === 'he') {
-
-            questionsToUse = questionsToUse.map(question => {
-                return {
-                    _id: question._id,
-                    answerValue: question.answerValue,
-                    questionText: question.questionTextHe,
-                    category: question.category,
-                    answers: question.answersHe
-
-                }
-            })
-        } else if (language === 'en') {
-
-            questionsToUse = questions.map(question => {
-                return {
-                    _id: question._id,
-                    answerValue: question.answerValue,
-                    questionText: question.questionTextEn,
-                    category: question.category,
-                    answers: question.answersEn
-
-                }
-            })
-        }
+        let questionsToUse = await questionService.query()
+        setQuestions(questionsToUse)
+        amountOfQuestions = questionsToUse.length
         setQuestionsToShow(questionsToUse)
     }
 
     const onSetAnswer = (answer, id) => {
-        console.log(answer, id);
-        const newQuestions = [...questionsToShow]
+
+        const newQuestions = [...questions]
         const requestedQuestion = newQuestions.find(question => question._id === id)
         requestedQuestion.answerValue = answer
         const questionsFromCategory = newQuestions.filter(question => question.category === requestedQuestion.category)
@@ -112,10 +82,10 @@ export const HomePage = () => {
             return acc + question.answerValue
         }, 0)
         const category = requestedQuestion.category
-        const allAnsweredQuestions = questionsToShow.filter(question => question.answerValue)
+        const allAnsweredQuestions = questions.filter(question => question.answerValue)
         scores.current = ({ ...scores.current, [category]: grade })
         questionsAnswered.current = allAnsweredQuestions.length
-        setQuestionsToShow(newQuestions)
+        setQuestions(newQuestions)
     }
 
     const submitForm = async (contactForm) => {
@@ -158,10 +128,6 @@ export const HomePage = () => {
         setLanguage(lang)
     }
 
-    const toggleLanguagePicker = () => {
-        setLanguagePicker(!isLanguagePickerOpen)
-    }
-
     if (!questions) return <div></div>
 
     return <div className='main-layout home' >
@@ -169,8 +135,8 @@ export const HomePage = () => {
         {!isFormDone && <React.Fragment>
             <div className="hero full">
                 <img className='banner' src={Banner} alt="" />
-                <div className={`languages-wrapper ${language === 'he' ? 'rtl' : 'ltr'} ${isLanguagePickerOpen ? 'open' : ''}`}>
-                    <button onClick={toggleLanguagePicker}>{<Globe />}</button>
+                <div className={`languages-wrapper ${language === 'he' ? 'rtl' : 'ltr'}`}>
+                    <button style={{ width: '50px' }}>{<Globe />}</button>
                     <ul className='languages'>
                         {languages.map(lang => {
                             return <li key={lang.code} onClick={() => changeLang(lang.lang)} className={`fi fi-${lang.code}`}>
