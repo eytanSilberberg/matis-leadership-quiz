@@ -73,6 +73,7 @@ export const HomePage = () => {
             questionsToUse = await questionService.query()
             setQuestions(questionsToUse)
             amountOfQuestions = questionsToUse.length
+            console.log(amountOfQuestions);
         }
         if (language === 'he') {
 
@@ -115,11 +116,12 @@ export const HomePage = () => {
         const allAnsweredQuestions = questionsToShow.filter(question => question.answerValue)
         scores.current = ({ ...scores.current, [category]: grade })
         questionsAnswered.current = allAnsweredQuestions.length
+        console.log(questionsAnswered.current);
         setQuestionsToShow(newQuestions)
     }
 
     const submitForm = async (contactForm) => {
-        const isAllQuestionsFilled = questions.every(question => question.answerValue)
+        const isAllQuestionsFilled = questionsToShow.every(question => question.answerValue)
         if (isAllQuestionsFilled) {
             const form = { scores: scores.current, ...contactForm }
             await formService.save(form)
