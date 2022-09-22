@@ -12,7 +12,7 @@ export const questionService = {
     save,
 
 }
-
+// added english version
 
 async function query() {
     const questions = await httpService.get('question')
