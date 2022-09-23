@@ -171,7 +171,7 @@ export const HomePage = () => {
         {!isFormDone && <React.Fragment>
             <div className="hero full">
                 <img className='banner' src={Banner} alt="" />
-                <div className={`languages-wrapper ${language === 'he' ? 'rtl' : 'ltr'} ${isLanguagePickerOpen ? 'open' : ''}`}>
+                {/* <div className={`languages-wrapper ${language === 'he' ? 'rtl' : 'ltr'} ${isLanguagePickerOpen ? 'open' : ''}`}>
                     <button onClick={toggleLanguagePicker}>{<Globe />}</button>
                     <ul className='languages'>
                         {languages.map(lang => {
@@ -181,7 +181,7 @@ export const HomePage = () => {
                         })}
 
                     </ul>
-                </div>
+                </div> */}
                 <div className='text-wrapper'>
                     <h1>
                         <span>{t('hero_span1')}</span>
