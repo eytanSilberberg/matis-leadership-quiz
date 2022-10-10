@@ -1,8 +1,43 @@
+import { useTranslation } from 'react-i18next'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Logo from '../assets/imgs/blue_logo.png'
+import { eventBusService } from '../services/basic/event-bus.service'
+
+const linkList = [
+    {
+        to: 'https://www.matiharlev.com/organizations',
+        trans: 'header_organizations'
+    }, {
+        to: 'https://www.matiharlev.com/public',
+        trans: 'header_public'
+    }, {
+        to: 'https://www.matiharlev.com/about',
+        trans: 'header_about'
+    }, {
+        to: 'https://www.matiharlev.com/digitalcourse',
+        trans: 'header_digitalcourse'
+    }, {
+        to: 'https://www.matiharlev.com/blog',
+        trans: 'header_blog'
+    },
+    {
+        to: 'https://www.matiharlev.com/contact',
+        trans: 'header_contact'
+    },
+    {
+        to: 'https://www.matiharlev.com/lessons',
+        trans: 'header_login'
+    }
+]
 
 export const AppHeader = () => {
+
+    const [lang, setLang] = useState('he')
+
+    eventBusService.on('change_lang', (lang) => {
+        setLang(lang)
+    })
+    const { t } = useTranslation()
 
     const [isMenuOpen, setMenu] = useState(false)
 
@@ -16,15 +51,11 @@ export const AppHeader = () => {
     return <header >
 
         <img onClick={goToWebsite} src={Logo} alt="" />
-        <nav className={`${isMenuOpen ? 'open' : ''}`}>
-            <a href="https://www.matiharlev.com/organizations">ארגונים</a>
-            <a href="https://www.matiharlev.com/public">קהל רחב</a>
-            <a href="https://www.matiharlev.com/%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA">הרצאות</a>
-            <a href="https://www.matiharlev.com/about">אודות מתי</a>
-            <a href="https://www.matiharlev.com/digitalcourse">קורס דיגיטלי</a>
-            <a href="https://www.matiharlev.com/blog">מרכז הידע</a>
-            <a href="https://www.matiharlev.com/contact">יצירת קשר</a>
-            <a href=" https://www.matiharlev.com/lessons">כניסת משתמש</a>
+        <nav className={`${isMenuOpen ? 'open' : ''} ${lang === 'he' ? 'rtl' : 'ltr'}`}>
+            {linkList.map(link => {
+                const { to, trans } = link
+                return <a key={to} href={`${to}`}>{t(`${trans}`)}</a>
+            })}
         </nav>
         <button className='menu-sign' onClick={toggleMenu}>☰</button>
         <div className={`screen ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}></div>

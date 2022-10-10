@@ -7,6 +7,9 @@ import { BackOffice } from './pages/backoffice.page.jsx';
 import { InfoPage } from './pages/info.page.jsx';
 import { QuestionPage } from './pages/question.page.jsx'
 
+import i18n from './services/basic/i18n';
+
+
 
 
 import routes from './routes'

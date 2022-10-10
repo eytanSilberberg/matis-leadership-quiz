@@ -1,40 +1,47 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { eventBusService } from '../services/basic/event-bus.service'
 
 
-export class UserMsg extends React.Component {
+export const UserMsg = () => {
 
-  removeEvent;
+  const [msg, setMsg] = useState()
+  const [lang, setLang] = useState()
 
-  state = {
-    msg: null
-  }
 
-  componentDidMount() {
-    // Here we listen to the event that we emited, its important to remove the listener 
-    this.removeEvent = eventBusService.on('show-user-msg', (msg) => {
-      this.setState({ msg })
+
+  const { t } = useTranslation()
+  let removeEvent
+  let removeEvent2
+
+  useEffect(() => {
+
+    removeEvent = eventBusService.on('show-user-msg', (msg) => {
+      setMsg(msg)
       setTimeout(() => {
-        this.setState({ msg: null })
+        setMsg(null)
       }, 2500)
     })
-  }
+    removeEvent2 = eventBusService.on('change_lang', (lang) => {
+      setLang(lang)
+    })
+    return () => {
+      removeEvent()
+      removeEvent2()
+    }
+  }, [])
 
-  componentWillUnmount() {
-    this.removeEvent()
-  }
-
-  render() {
-    if (!this.state.msg) return <span></span>
-    const msgClass = this.state.msg.type || ''
-    return (
-      <section className={'user-msg ' + msgClass}>
-        <button onClick={() => {
-          this.setState({ msg: null })
-        }}>x</button>
-        {this.state.msg.txt}
-      </section>
-    )
-  }
+  if (!msg) return <span></span>
+  const msgClass = msg.type || ''
+  return (
+    <section className={'user-msg ' + msgClass + ` ${lang === 'he' ? 'rtl' : 'ltr'}`}>
+      <button onClick={() => {
+        setMsg(null)
+      }}>x</button>
+      {t(msg.txt)}
+    </section >
+  )
 }

@@ -1,3 +1,26 @@
 {
-    "welcome_to_react": "Welcome to react"
+    "header_organizations": "Organizations",
+    "header_public": "Public",
+    "header_about": "About",
+    "header_digitalcourse": "Digital courses",
+    "header_blog": "Blog",
+    "header_contact": "Contact",
+    "header_login": "Login",
+    "hero_span1": "Cognitive leadership",
+    "hero_span2": "Self-examination questionnaire",
+    "intro_welcome": "Welcome!",
+    "intro_p1": "The questionnaire in front of you is a research and diagnostic tool developed by Dr. Mati Har-Lev and its purpose is to test the degree of your conscious leadership. The questionnaire consists of sayings and verbal evaluations concerning each saying. The sayings are worded in the masculine language but refer to both women and men.",
+    "intro_p2": "There are no right or wrong answers in the questionnaire - for each phrase, mark the most accurate verbal assessment for you.",
+    "intro_p3": "At the end of the filling, an email will be sent to you with the analysis of the personal result yours according to the principles of the method.",
+    "intro_goodLuck": "Good luck!",
+    "intro_p4": "Dr. Mati Har-Lev, developer of the method for conscious leadership",
+    "intro_button": "Let's start!",
+    "contact_form_almostDone": "You're almost done!",
+    "contact_form_email": "Please enter an email:",
+    "contact_form_name": "Please enter your full name",
+    "contact_form_acceptance": "By pressing send you are allowing us to send you the answers of this questionnaire to the given email address.",
+    "contact_form_button": "Submit",
+    "thank_you_span1": "Thank you for answering the questions",
+    "thank_you_span2": "An email has been sent to the email provided. If by any chance you do not see the mail, please check your spam/ promotion.",
+    "user_msg": "Please anser all the questions"
 }
