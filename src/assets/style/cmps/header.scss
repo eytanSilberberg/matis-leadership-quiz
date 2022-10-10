@@ -46,6 +46,18 @@ header {
             transform: translateX(0);
         }
 
+        @include for-wide-layout {
+            &.rtl {
+                transform: translateX(0);
+                left: 0;
+            }
+
+            &.ltr {
+                transform: translateX(0);
+                right: 0;
+            }
+        }
+
         a {
             // font-size: rem(14px);
             color: white;
