@@ -1,6 +1,8 @@
 
 # matis-leadership-quiz
 
+[AppImg](./readmeAssets/imgs/app.png)
+
 ## Installation
 git clone: https://github.com/eytanSilberberg/matis-leadership-quiz.git
 Visit app at: https://analysis.matiharlev.com/
