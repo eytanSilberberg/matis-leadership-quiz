@@ -22,12 +22,19 @@ this project is built with React and Nodejs, and uses the following libraries, s
 - *axios:*  A promise based HTTP Client for nodejs and the browser(A definition from axios docs).
 - *sendGrid:* A platform which allows us to easily send beautiful designed emails to different users. This library is api based and used in the backend of this project.
 
-This project is can be viewed in all screen sizes: from a small screen of a phone up until a large screen of a computer
+This project can be viewed in all screen sizes: from a small screen of a phone, up until a large screen of a computer
 
 <p float='left'>
 <img src='/readmeAssets/imgs/intro-resizing.gif' width="400"/>
 <img src='/readmeAssets/imgs/questionnaire-resizing.gif' width="400"/>
 </p>
+
+
+By using mui components I got the create the progress bar the sticks to the top. Once the user finishes answering all the question there is a color indicator which lets you know that you haven't missed any question.
+
+![email](./readmeAssets/imgs/email-resizing.gif)
+
+In the end, the user will fill up a detail form, and once finished he'll receive an email that contains the analysis of the questionnaire the he had filled. As you can see the email received is also suitable to all screen sizes.
 
 
 
