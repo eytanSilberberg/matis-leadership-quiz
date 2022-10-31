@@ -5,14 +5,22 @@
 
 ## Installation
 git clone: https://github.com/eytanSilberberg/matis-leadership-quiz.git
+<br/>
 Visit app at: https://analysis.matiharlev.com/
 <hr/>
+<br/>
 
-A Real live project that was developed and designed by me for Mati Harlev, who is a psychologist that developed a questionnaire that its main purpose is to grade a persons conscious leadership.
+A Real live project that was developed and designed by me for Mati Harlev, who is a psychologist that developed a questionnaire that its soul purpose is to help people understand what is conscious leadership and what they should do to improve there own.
+<br/>
+<br/>
 
-You can visit her website at: https://www.matiharlev.com/
+at the end of the experience you'll receive an email containing a more elaborated explanation of what is conscious leadership, and an analysis which will guide you and will help you improve in the matter. 
 
-this project is built with React and Nodejs, and uses the following libraries, styles and apis: <br/>
+<br/>
+<br/>
+
+
+this project is built with React and Nodejs, stored in heroku paid dynos,uses goDaddy as its domain provider and uses the following libraries, styles and apis: <br/>
 
 - *MongoDb:* A database which collects in this project  all users who filled the form(connected through the backend)
 - *scss:* The main style language in this project
