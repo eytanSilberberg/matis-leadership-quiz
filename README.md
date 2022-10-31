@@ -10,7 +10,7 @@ Visit app at: https://analysis.matiharlev.com/
 <hr/>
 <br/>
 
-A Real live project that was developed and designed by me for Mati Harlev, who is a psychologist that developed a questionnaire that its soul purpose is to help people understand what is conscious leadership and what they should do to improve there own.
+A Real live project that was developed and designed by me for Mati Harlev, who is a psychologist that developed a questionnaire that its soul purpose is to help people understand what is conscious leadership and what they should do to improve their own.
 <br/>
 <br/>
 
@@ -42,11 +42,32 @@ By using mui components I got the create the progress bar the sticks to the top.
 
 ![email](./readmeAssets/imgs/email-resizing.gif)
 
-In the end, the user will fill up a detail form, and once finished he'll receive an email that contains the analysis of the questionnaire the he had filled. As you can see that the  email received is also suitable to all screen sizes.
+In the end, the user will fill up a detail form, and once finished he'll be redirected to Matis official website, and he will receive an email that contains the analysis of the questionnaire the he had filled. As you can see that the  email received is also suitable to all screen sizes.
 
-Another feature that is included in this app is the option to change the language of the app. The primary language of this app is hebrew is also compatible with English(Not all features are currently working in the app for the reason of the owner still working on translating). 
+Another feature that is included in this app is the option to change the language of the app. The primary language of this app is hebrew but is  also compatible in English( Not all features are currently working in the app in english for the reason of the owner still working on translating the entire site). 
 
 ![i18n](./readmeAssets/imgs/i18n.gif)
+
+
+Two more pages are included in this app, Which are only relevant to the admin of this app.
+
+These two pages are not translated to other languages and wont be translated, for the reason of the admins primary language being hebrew.
+
+page 1- Login page:
+
+![login](./readmeAssets/imgs/loginpage.png)
+
+Page 2- Analysis page(Which is an inner route)
+
+![analysis](./readmeAssets/imgs/blured.png)
+
+For privacy reasons all emails filled and analysis will be filtered out 
+
+Hope you enjoy the app !
+
+
+
+
 
 
 
