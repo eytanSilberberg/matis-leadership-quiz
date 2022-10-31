@@ -61,6 +61,8 @@ Page 2- Analysis page(Which is an inner route)
 
 ![analysis](./readmeAssets/imgs/blured.png)
 
+In the coming future there will be a full crud regarding the questions that are presented to the users, and the admin will be able to decide on them.
+
 For privacy reasons all emails and analysis will be filtered out expect of my own.
 
 Hope you enjoy the app !
