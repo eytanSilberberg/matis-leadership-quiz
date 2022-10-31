@@ -25,8 +25,8 @@ this project is built with React and Nodejs, and uses the following libraries, s
 This project is can be viewed in all screen sizes: from a small screen of a phone up until a large screen of a computer
 
 <p float='left'>
-<img src='/readmeAssets/imgs/intro-resizing.gif' width="30"/>
-<img src='/readmeAssets/imgs/questionnaire-resizing.gif' width="30"/>
+<img src='/readmeAssets/imgs/intro-resizing.gif' width="80"/>
+<img src='/readmeAssets/imgs/questionnaire-resizing.gif' width="80"/>
 </p>
 
 
