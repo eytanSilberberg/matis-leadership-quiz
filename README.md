@@ -14,13 +14,13 @@ A Real live project that was developed and designed by me for Mati Harlev, who i
 <br/>
 <br/>
 
-at the end of the experience you'll receive an email containing a more elaborated explanation of what is conscious leadership, and an analysis which will guide you and will help you improve in the matter. 
+at the end of the experience the user will receive an email containing a more elaborated explanation of what is conscious leadership, and an analysis which will guide and help them improve in the matter. 
 
 <br/>
 <br/>
 
 
-this project is built with React and Nodejs, stored in heroku paid dynos,uses goDaddy as its domain provider and uses the following libraries, styles and apis: <br/>
+This project is built with React and Nodejs, stored in heroku paid dynos, uses goDaddy as its domain provider and uses the following libraries and apis: <br/>
 
 - *MongoDb:* A database which collects in this project  all users who filled the form(connected through the backend)
 - *scss:* The main style language in this project
@@ -42,7 +42,11 @@ By using mui components I got the create the progress bar the sticks to the top.
 
 ![email](./readmeAssets/imgs/email-resizing.gif)
 
-In the end, the user will fill up a detail form, and once finished he'll receive an email that contains the analysis of the questionnaire the he had filled. As you can see the email received is also suitable to all screen sizes.
+In the end, the user will fill up a detail form, and once finished he'll receive an email that contains the analysis of the questionnaire the he had filled. As you can see that the  email received is also suitable to all screen sizes.
+
+Another feature that is included in this app is the option to change the language of the app. The primary language of this app is hebrew is also compatible with English(Not all features are currently working in the app for the reason of the owner still working on translating). 
+
+![i18n](./readmeAssets/imgs/i18n.gif)
 
 
 
