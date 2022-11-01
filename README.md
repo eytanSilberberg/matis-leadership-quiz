@@ -48,6 +48,40 @@ Another feature that is included in this app is the option to change the languag
 
 ![i18n](./readmeAssets/imgs/i18n.gif)
 
+```js
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from 'i18next-browser-languagedetector'
+
+import translationEn from '../../assets/locales/en/translationEn.json'
+import translationHe from '../../assets/locales/he/translationHe.json'
+
+const resources = {
+    en: {
+        translation: translationEn
+    },
+    he: {
+        translation: translationHe
+    }
+}
+
+i18n
+    .use(initReactI18next) 
+    .init({
+        resources,
+        lng: 'he', 
+        fallbackLng: "he",
+        interpolation: {
+            escapeValue: false 
+        }
+    });
+
+export default i18n;
+```
+
+This service runs straight as the app runs.
+A very easy library which helped me a lot with translating the app
+
 
 Two more pages are included in this app, Which are only relevant to the admin of this app.
 
@@ -61,7 +95,7 @@ Page 2- Analysis page(Which is an inner route)
 
 ![analysis](./readmeAssets/imgs/blured.png)
 
-In the coming future there will be a full crud regarding the questions that are presented to the users, and the admin will be able to decide on them.
+In the coming future there will be a full crud regarding the questions that are presented to the users, and the admin will be able to decide on them(As you can see in there are two pages available in the backOffice page)
 
 For privacy reasons all emails and analysis will be filtered out expect of my own.
 
