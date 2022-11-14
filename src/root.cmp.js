@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router'
 
-import { AppHeader } from './cmps/app-header.jsx'
-import { UserMsg } from './cmps/user-msg'
+import { AppHeader } from './cmps/app.header.jsx'
+import { UserMsg } from './cmps/user.msg'
 import { BackOffice } from './pages/backoffice.page.jsx';
 import { InfoPage } from './pages/info.page.jsx';
 import { QuestionPage } from './pages/question.page.jsx'
@@ -12,7 +12,7 @@ import i18n from './services/basic/i18n';
 
 
 
-import routes from './routes'
+import routes from './data/routes'
 
 function App() {
   return (

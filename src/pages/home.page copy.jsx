@@ -25,6 +25,7 @@ import languages from '../data/languages';
 export const HomePage = () => {
     const scores = useRef({ responsibility: 0, selfAcceptance: 0, acceptanceOfOthers: 0, emotionalIndependency: 0, creatibilityAndResilienceOfMind: 0, creatibilityAndFocusOfConsciousness: 0 })
     const [questions, setQuestions] = useState(null)
+    const [questionsToShow, setQuestionsToShow] = useState(null)
     const [isFormDone, setIsFormDone] = useState(false)
     const [isAnswering, setIsAnswering] = useState(false)
     const [language, setLanguage] = useState('he')
@@ -32,27 +33,59 @@ export const HomePage = () => {
 
     const questionsAnswered = useRef(0)
     const questionsSection = useRef()
-    const renderCount = useRef(0)
     let amountOfQuestions
+    const renderCount = useRef(0)
+
+
 
     useEffect(() => {
-        if (!renderCount.current) {
-            renderCount.current++
-            loadQuestionsToUse()
-        }
+        loadQuestionsToUse()
         if (language === 'he') document.body.dir = 'rtl'
         else if (language === 'en') document.body.dir = 'ltr'
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [language])
 
     const loadQuestionsToUse = async () => {
-        const questionsToUse = await questionService.query()
-        amountOfQuestions = questionsToUse.length
-        setQuestions(questionsToUse)
+        questionsAnswered.current = 0
+        let questionsToUse = questions
+        if (!renderCount.current) {
+            renderCount.current++
+            questionsToUse = await questionService.query()
+            setQuestions(questionsToUse)
+            amountOfQuestions = questionsToUse.length
+        }
+
+        if (language === 'he') {
+            questionsToUse = questionsToUse.map(question => {
+                return {
+                    _id: question._id,
+                    answerValue: question.answerValue,
+                    questionText: question.questionTextHe,
+                    category: question.category,
+                    answers: question.answersHe
+
+                }
+            })
+
+        } else if (language === 'en') {
+
+            questionsToUse = questionsToUse.map(question => {
+                return {
+                    _id: question._id,
+                    answerValue: question.answerValue,
+                    questionText: question.questionTextEn,
+                    category: question.category,
+                    answers: question.answersEn
+
+                }
+            })
+        }
+        setQuestionsToShow(questionsToUse)
     }
 
     const onSetAnswer = (answer, id) => {
-        const newQuestions = [...questions]
+        console.log(answer, id);
+        const newQuestions = [...questionsToShow]
         const requestedQuestion = newQuestions.find(question => question._id === id)
         requestedQuestion.answerValue = answer
         const questionsFromCategory = newQuestions.filter(question => question.category === requestedQuestion.category)
@@ -60,15 +93,15 @@ export const HomePage = () => {
             return acc + question.answerValue
         }, 0)
         const category = requestedQuestion.category
-        const allAnsweredQuestions = questions.filter(question => question.answerValue)
+        const allAnsweredQuestions = questionsToShow.filter(question => question.answerValue)
         scores.current = ({ ...scores.current, [category]: grade })
         questionsAnswered.current = allAnsweredQuestions.length
         console.log(questionsAnswered.current);
-        setQuestions(newQuestions)
+        setQuestionsToShow(newQuestions)
     }
 
     const submitForm = async (contactForm) => {
-        const isAllQuestionsFilled = questions.every(question => question.answerValue)
+        const isAllQuestionsFilled = questionsToShow.every(question => question.answerValue)
         if (isAllQuestionsFilled) {
             const form = { scores: scores.current, ...contactForm }
             await formService.save(form)
@@ -102,16 +135,17 @@ export const HomePage = () => {
     }
 
     if (!questions) return <div></div>
+
     return <div className='main-layout home' >
 
         {!isFormDone && <React.Fragment>
             <Hero language={language} isLanguagePickerOpen={isLanguagePickerOpen} toggleLanguagePicker={toggleLanguagePicker} languages={languages} changeLang={changeLang} />
             <Intro StartAnsweringForm={StartAnsweringForm} language={language} />
-            {!questions && <React.Fragment></React.Fragment>}
-            {questions && isAnswering && <React.Fragment>
+            {!questionsToShow && <React.Fragment></React.Fragment>}
+            {questionsToShow && isAnswering && <React.Fragment>
                 <div ref={questionsSection} className='interactive-section full main-layout'>
                     <ProgressBar questionsLength={questions.length} questionsAnswered={questionsAnswered.current} />
-                    <QuestionList questions={questions} setAnswer={onSetAnswer} language={language} />
+                    <QuestionList questions={questionsToShow} setAnswer={onSetAnswer} />
                 </div>
                 <ContactForm submitForm={submitForm} />
             </React.Fragment>}

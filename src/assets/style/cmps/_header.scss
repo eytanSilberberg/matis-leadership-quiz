@@ -8,10 +8,7 @@ header {
 
     }
 
-    // position: absolute;
-    // width: 100%;
     background-color: #013553;
-    // height: rem(100px);
     display: flex;
     z-index: 1;
 
@@ -22,7 +19,6 @@ header {
 
     nav {
         position: fixed;
-
         height: 100%;
         display: flex;
         align-items: center;
@@ -59,7 +55,6 @@ header {
         }
 
         a {
-            // font-size: rem(14px);
             color: white;
             width: fit-content;
             margin: 0 10px;
@@ -105,22 +100,17 @@ header {
     }
 
     @include for-wide-layout {
-        // header {
-
         .menu-sign {
             display: none;
         }
 
         nav {
             justify-content: flex-end;
-
             position: static;
             width: 870px;
             flex-direction: row;
             background-color: unset;
             transform: translateX(0);
-
-
         }
 
         .screen {

@@ -6,10 +6,6 @@ html {
     @include for-normal-layout {
         font-size: rem(16px);
     }
-
-    @include for-wide-layout {
-        font-size: rem(16px);
-    }
 }
 
 * {
@@ -19,32 +15,17 @@ html {
 body {
     color: $pri-color;
     font-family: 'heebo', sans-serif;
-
-
-
-    // @include for-wide-layout {
-    //     font-size: rem(16px);
-    // }
-
-    // direction: rtl;
     margin: 0;
     line-height: rem(25px);
     background-color: $app-clr;
-
 }
 
 a {
     text-decoration: none;
-
-    &:hover {
-        cursor: pointer;
-    }
 }
 
-button {
-    &:hover {
-        cursor: pointer;
-    }
+button :hover {
+    cursor: pointer;
 }
 
 main {

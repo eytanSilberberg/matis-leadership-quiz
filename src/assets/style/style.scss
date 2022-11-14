@@ -10,17 +10,17 @@
 @import './basic/layout';
 
 // PAGES
-@import './pages/home.scss';
-@import './pages/backoffice.scss';
-@import './pages/admin.scss';
-@import './pages/info.scss';
+@import './pages/home';
+@import './pages/backoffice';
+@import './pages/admin';
+@import './pages/info';
 
 
 
 // CMPS
 
-@import './cmps/header.scss';
-@import './cmps/questions.scss';
-@import './cmps/intro.scss';
-@import './cmps/form.scss';
+@import './cmps/header';
+@import './cmps/questions';
+@import './cmps/intro';
+@import './cmps/form';
 @import './cmps/user-msg'

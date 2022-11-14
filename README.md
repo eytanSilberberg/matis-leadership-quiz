@@ -6,6 +6,8 @@
 ## Installation
 git clone: https://github.com/eytanSilberberg/matis-leadership-quiz.git
 <br/>
+Git clone will allow you see the frontend repository but not view the app on the local host, because it relies on the backend to render the page. For security reasons I am not sharing the backend code. To visit app please visit link bellow.
+<br/>
 Visit app at: https://analysis.matiharlev.com/
 <hr/>
 <br/>

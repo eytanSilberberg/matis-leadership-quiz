@@ -1,50 +1,7 @@
-.shadow {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &.visible {
-        display: flex;
-        opacity: 1;
-
-        background-color: $shadow-clr;
-        // &.show-content {
-
-        // }
-
-        z-index: 2;
-    }
-
-    &.hidden {
-        opacity: 0;
-        z-index: -1;
-        background-color: inherit;
-    }
-
-    transition: all 1s;
-
-}
-
 .form-wrapper {
     color: black;
-    // width: rem(250px);
     width: 100%;
     display: flex;
-
-    @include for-narrow-layout {
-        justify-content: center;
-    }
-
-    @include normal-layout {
-        justify-content: flex-start;
-
-    }
-
-    // background-color: bisque;
-    // padding: 30px;
-
 
     form {
         padding: rem(20px) rem(10px);
@@ -65,7 +22,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
         }
 
         input[type=text],
@@ -79,7 +35,6 @@
             @include for-narrow-layout {
                 align-self: flex-end;
             }
-
 
             margin-top: rem(10px);
             @include button

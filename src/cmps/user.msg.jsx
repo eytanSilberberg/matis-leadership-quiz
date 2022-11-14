@@ -11,9 +11,8 @@ export const UserMsg = () => {
   const [msg, setMsg] = useState()
   const [lang, setLang] = useState()
 
+  const { t: translate } = useTranslation()
 
-
-  const { t } = useTranslation()
   let removeEvent
   let removeEvent2
 
@@ -41,7 +40,7 @@ export const UserMsg = () => {
       <button onClick={() => {
         setMsg(null)
       }}>x</button>
-      {t(msg.txt)}
+      {translate(msg.txt)}
     </section >
   )
 }
