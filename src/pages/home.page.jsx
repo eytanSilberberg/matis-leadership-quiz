@@ -33,7 +33,6 @@ export const HomePage = () => {
     const questionsAnswered = useRef(0)
     const questionsSection = useRef()
     const renderCount = useRef(0)
-    let amountOfQuestions
 
     useEffect(() => {
         if (!renderCount.current) {
@@ -47,7 +46,6 @@ export const HomePage = () => {
 
     const loadQuestionsToUse = async () => {
         const questionsToUse = await questionService.query()
-        amountOfQuestions = questionsToUse.length
         setQuestions(questionsToUse)
     }
 
@@ -63,7 +61,6 @@ export const HomePage = () => {
         const allAnsweredQuestions = questions.filter(question => question.answerValue)
         scores.current = ({ ...scores.current, [category]: grade })
         questionsAnswered.current = allAnsweredQuestions.length
-        console.log(questionsAnswered.current);
         setQuestions(newQuestions)
     }
 
@@ -104,18 +101,19 @@ export const HomePage = () => {
     if (!questions) return <div></div>
     return <div className='main-layout home' >
 
-        {!isFormDone && <React.Fragment>
+        {!isFormDone && <>
             <Hero language={language} isLanguagePickerOpen={isLanguagePickerOpen} toggleLanguagePicker={toggleLanguagePicker} languages={languages} changeLang={changeLang} />
             <Intro StartAnsweringForm={StartAnsweringForm} language={language} />
-            {!questions && <React.Fragment></React.Fragment>}
-            {questions && isAnswering && <React.Fragment>
-                <div ref={questionsSection} className='interactive-section full main-layout'>
-                    <ProgressBar questionsLength={questions.length} questionsAnswered={questionsAnswered.current} />
-                    <QuestionList questions={questions} setAnswer={onSetAnswer} language={language} />
-                </div>
-                <ContactForm submitForm={submitForm} />
-            </React.Fragment>}
-        </React.Fragment>}
+            {!questions && <></>}
+            {questions && isAnswering &&
+                <>
+                    <div ref={questionsSection} className='interactive-section full main-layout'>
+                        <ProgressBar questionsLength={questions.length} questionsAnswered={questionsAnswered.current} />
+                        <QuestionList questions={questions} setAnswer={onSetAnswer} language={language} />
+                    </div>
+                    <ContactForm submitForm={submitForm} />
+                </>}
+        </>}
 
         {isFormDone && <ThankYou />}
     </div>

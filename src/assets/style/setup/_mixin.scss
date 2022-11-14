@@ -36,6 +36,7 @@
 
     &:hover {
         background-color: $hover-bg-clr;
+        cursor: pointer;
     }
 
     transition: all 300ms;

@@ -6,8 +6,6 @@ const BASE_URL = (process.env.NODE_ENV === 'production')
 
 export const formService = {
     query,
-    getById,
-    remove,
     save,
 
 }
@@ -15,20 +13,12 @@ export const formService = {
 const STORAGE_KEY = 'form'
 
 async function query() {
-    return httpService.get('form')
-}
-
-async function getById(anyId) {
-    // return await httpService.get(`any/${anyId}`)
-}
-
-async function remove(anyId) {
-    // return httpService.delete(`any/${anyId}`)
+    return httpService.get(STORAGE_KEY)
 }
 
 async function save(form) {
 
-    await httpService.post('form', form)
+    await httpService.post(STORAGE_KEY, form)
 }
 
 

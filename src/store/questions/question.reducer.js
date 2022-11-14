@@ -11,12 +11,7 @@ export function questionReducer(state = initialState, action = {}) {
         case 'REMOVE_QUESTION':
             return { ...state, questions: state.questions.filter(question => question._id !== action.questionId) }
         case 'UPDATE_QUESTION':
-            return {
-                ...state,
-                questions: state.questions.map(question =>
-                    question._id === action.question._id ? action.question : question
-                )
-            }
+            return { ...state, questions: state.questions.map(question => question._id === action.question._id ? action.question : question) }
         case 'SET_QUESTION':
             return { ...state, question: action.question }
         case 'CLEAR_QUESTION':

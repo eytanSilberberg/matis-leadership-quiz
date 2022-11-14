@@ -7,7 +7,6 @@ export const QuestionPreview = ({ question, setAnswer, language }) => {
 
     let numsOrder = question.direction === "increase" ? [1, 2, 3, 4, 5, 6] : [6, 5, 4, 3, 2, 1]
 
-    if (question.answerValue) console.log(question)
 
     return <div className="question-preview">
         <h1>{question.questions[language]}</h1>

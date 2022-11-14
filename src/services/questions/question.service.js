@@ -6,10 +6,6 @@ const BASE_URL = (process.env.NODE_ENV === 'production')
 
 export const questionService = {
     query,
-    // getById,
-    // remove,
-    // save,
-
 }
 
 async function query() {

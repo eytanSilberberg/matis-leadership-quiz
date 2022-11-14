@@ -9,7 +9,7 @@ export const BackOffice = () => {
         if (!user) {
             navigate('/login')
         }
-    }, [])
+    })
 
     const logout = async () => {
         try {
