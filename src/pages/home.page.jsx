@@ -23,7 +23,6 @@ import languages from '../data/languages';
 
 
 export const HomePage = () => {
-    const scores = useRef({ responsibility: 0, selfAcceptance: 0, acceptanceOfOthers: 0, emotionalIndependency: 0, creatibilityAndResilienceOfMind: 0, creatibilityAndFocusOfConsciousness: 0 })
     const [questions, setQuestions] = useState(null)
     const [isFormDone, setIsFormDone] = useState(false)
     const [isAnswering, setIsAnswering] = useState(false)
@@ -53,29 +52,48 @@ export const HomePage = () => {
         const newQuestions = [...questions]
         const requestedQuestion = newQuestions.find(question => question._id === id)
         requestedQuestion.answerValue = answer
-        const questionsFromCategory = newQuestions.filter(question => question.category === requestedQuestion.category)
-        const grade = questionsFromCategory.reduce((acc, question) => {
-            return acc + question.answerValue
-        }, 0)
-        const category = requestedQuestion.category
         const allAnsweredQuestions = questions.filter(question => question.answerValue)
-        scores.current = ({ ...scores.current, [category]: grade })
         questionsAnswered.current = allAnsweredQuestions.length
         setQuestions(newQuestions)
     }
 
     const submitForm = async (contactForm) => {
-        const isAllQuestionsFilled = questions.every(question => question.answerValue)
-        if (isAllQuestionsFilled) {
-            const form = { scores: scores.current, ...contactForm }
-            await formService.save(form)
-            setIsFormDone(true)
-            setTimeout(() => {
-                window.location = 'http://matiharlev.com/'
-            }, 2000)
-        } else {
-            showErrorMsg('user_msg')
+
+        const currDate = new Date(Date.now())
+        const scores = {
+            responsibility: 0,
+            selfAcceptance: 0,
+            acceptanceOfOthers: 0,
+            emotionalIndependency: 0,
+            creatibilityAndResilienceOfMind: 0,
+            creatibilityAndFocusOfConsciousness: 0,
+            internal: 0,
+            external: 0
         }
+
+        for (let i = 0; i < questions.length; i++) {
+            const currQuestion = questions[i]
+            if (currQuestion.answerValue) {
+                scores[currQuestion.category] += currQuestion.answerValue
+                scores[currQuestion.character] += currQuestion.answerValue
+            } else {
+                showErrorMsg('user_msg')
+                return
+            }
+        }
+
+        const form = { scores, ...contactForm, dateFilled: currDate }
+        try {
+            await formService.save(form)
+        } catch (error) {
+            console.error(error)
+            return
+        }
+        setIsFormDone(true)
+        setTimeout(() => {
+            window.location = 'http://matiharlev.com/'
+        }, 2000)
+
     }
 
     const StartAnsweringForm = () => {

@@ -1,5 +1,5 @@
 import Banner from '../assets/imgs/banner.jpeg'
-import Globe from './globe'
+import Globe from './icons/globe'
 import { useTranslation } from 'react-i18next';
 import Mati_img from '../assets/imgs/mati_img.jpeg'
 

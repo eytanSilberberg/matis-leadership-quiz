@@ -1,60 +1,70 @@
 .info-page {
-    button {
-        @include button
-    }
+    overflow-x: hidden;
+
+    // button {
+    //     @include button
+    // }
 
     .MuiButtonBase-root {
         padding: 5px !important;
     }
 
-    .scores-wrapper {
-        position: fixed;
-        left: 0;
-        background-color: $app-clr;
-        box-shadow: inset 0px 0px 6px 0px;
-        width: 100%;
-        z-index: 1;
-        height: fit-content;
-
-        .scores-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            gap: 10px;
-
-
-        }
-
-        @include for-mobile-layout {
-            font-size: rem(12px);
-        }
-
-        @include narrow-layout {
-            font-size: rem(14px);
-
-        }
-
-        &.closed {
-            transform: translateX(-100%);
-        }
-
-        &.open {
-            transform: translateX(0);
-        }
-
-        transition: all 0.7s ease;
-
-
-        .button-wrapper {
-            align-self: flex-start;
-        }
-
-        div {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
+    tr {
+        button {
+            @include button
         }
     }
+
+    // .scores-wrapper {
+    //     position: absolute;
+    //     // overflow-x: hidden;
+    //     left: 0;
+    //     background-color: $app-clr;
+    //     box-shadow: inset 0px 0px 6px 0px;
+    //     width: 100%;
+    //     z-index: 1;
+    //     height: fit-content;
+
+
+    //     .scores-container {
+    //         display: flex;
+    //         flex-direction: row;
+    //         justify-content: space-around;
+    //         gap: 10px;
+
+
+    //     }
+
+    //     @include for-mobile-layout {
+    //         font-size: rem(12px);
+    //     }
+
+    //     @include narrow-layout {
+    //         font-size: rem(14px);
+
+    //     }
+
+    //     &.closed {
+    //         transform: translateX(-100%);
+    //     }
+
+    //     &.open {
+    //         transform: translateX(0);
+    //     }
+
+    //     transition: all 0.7s ease;
+
+
+    //     .button-wrapper {
+    //         align-self: flex-start;
+    //     }
+
+    //     div {
+    //         display: flex;
+    //         flex-direction: column;
+    //         text-align: center;
+    //     }
+    // }
 
     h2 {
         margin-top: rem(20px);
