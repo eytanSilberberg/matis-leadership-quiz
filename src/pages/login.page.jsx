@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "../hooks/useForm";
-import { userService } from '../services/user/user.service'
+import { userService } from "../services/user/user.service"
 
 
 export const LoginPage = () => {
@@ -23,11 +23,11 @@ export const LoginPage = () => {
             <form onSubmit={submitForm} className='log-in-form-wrapper'>
                 <label>
                     <h2>נא להזין את שם המשתמש</h2>
-                    <input onChange={handleForm} name='email' type="text" />
+                    <input onChange={handleForm} name='email' type='text' />
                 </label>
                 <label >
                     <h2>נא להזין את הסיסמא </h2>
-                    <input onChange={handleForm} name='password' type="password" />
+                    <input onChange={handleForm} name='password' type='password' />
                 </label>
                 <button>התחבר</button>
             </form>

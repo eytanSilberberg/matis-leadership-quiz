@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
-export const ProgressBar = ({ questionsLength, questionsAnswered, fillAllAnswers }) => {
+export const ProgressBar = ({ questionsLength, questionsAnswered }) => {
     let progress = ((questionsAnswered) / questionsLength) * 100
 
     let percentageBarColor = (progress === 100) ? '#61bd4e' : '#5BA4D0'
@@ -21,7 +21,6 @@ export const ProgressBar = ({ questionsLength, questionsAnswered, fillAllAnswers
 
         <div className="progress-bar-wrapper">
             <ThemeProvider theme={theme}>
-
                 <Box sx={{ width: '100%' }}>
                     <LinearProgress variant="determinate" value={progress} sx={{
                         height: 8,
@@ -29,8 +28,6 @@ export const ProgressBar = ({ questionsLength, questionsAnswered, fillAllAnswers
                 </Box>
             </ThemeProvider>
             <h1>{questionsAnswered}/{questionsLength}</h1>
-            {/* <button onClick={fillAllAnswers}>fill</button> */}
-
         </div>
     </div>
 }

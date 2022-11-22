@@ -1,20 +1,20 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 
 
-import { formService } from '../services/form/form.service';
-import { questionService } from '../services/questions/question.service'
+import { formService } from "../services/form/form.service";
+import { questionService } from "../services/questions/question.service"
 
-import { Intro } from '../cmps/intro'
-import { Hero } from '../cmps/hero'
-import { QuestionList } from '../cmps/questions.list.jsx'
-import { ContactForm } from '../cmps/contact.form.jsx'
-import { ProgressBar } from '../cmps/progress.bar.jsx'
-import { ThankYou } from '../cmps/thank.you.jsx'
+import { Intro } from "../cmps/intro"
+import { Hero } from "../cmps/hero"
+import { QuestionList } from "../cmps/questions.list.jsx"
+import { ContactForm } from "../cmps/contact.form.jsx"
+import { ProgressBar } from "../cmps/progress.bar.jsx"
+import { ThankYou } from "../cmps/thank.you.jsx"
 
-import { useRef } from 'react';
-import { eventBusService, showErrorMsg } from '../services/basic/event-bus.service';
-import i18n from '../services/basic/i18n';
+import { useRef } from "react";
+import { eventBusService, showErrorMsg } from "../services/basic/event-bus.service";
+import i18n from "../services/basic/i18n";
 import "/node_modules/flag-icons/css/flag-icons.min.css"
 
 // DATA

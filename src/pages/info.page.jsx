@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { formService } from "../services/form/form.service";
-import { MuiTable } from '../cmps/mui.table.jsx'
-import { UsersForm } from '../cmps/users.form.jsx'
+import { MuiTable } from "../cmps/mui.table.jsx"
+import { UsersForm } from "../cmps/users.form.jsx"
 
 export const InfoPage = () => {
 

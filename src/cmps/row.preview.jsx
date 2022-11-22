@@ -1,8 +1,6 @@
 import React from "react";
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
-import { useState } from "react";
-
 import { makeDate } from "../services/basic/util.service";
 
 
@@ -11,17 +9,7 @@ const cellStyling = { padding: { xs: 1.5, sm: 2, md: 2, lg: 4 }, minWidth: 30, f
 const rowStyling = { position: 'relative' }
 
 export const RowPreview = ({ form, windowSize, onViewUsersForm }) => {
-    const [isScoresOpen, setIsScoresOpen] = useState(false)
-
-    const onToggleScores = (boolean) => {
-        setIsScoresOpen(boolean)
-    }
-
-
     const dateFormatted = makeDate(form.dateFilled)
-
-
-
     return (
         <TableRow sx={{ ...rowStyling }}>
             <TableCell sx={{ ...cellStyling }}>{dateFormatted}</TableCell>
@@ -31,8 +19,6 @@ export const RowPreview = ({ form, windowSize, onViewUsersForm }) => {
                 {Object.keys(form.scores).map((key, idx) => {
                     return <React.Fragment key={idx}><TableCell sx={{ ...cellStyling }}>{form.scores[key]}</TableCell></React.Fragment>
                 })}
-                <TableCell sx={{ ...cellStyling }}>{25}</TableCell>
-                <TableCell sx={{ ...cellStyling }}>{80}</TableCell>
             </React.Fragment>}
             {(windowSize === 'sm' || windowSize === 'med') && <TableCell sx={{ ...cellStyling }}><button onClick={() => onViewUsersForm(form)}>הצג</button></TableCell>}
 

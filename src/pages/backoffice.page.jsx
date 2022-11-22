@@ -21,11 +21,11 @@ export const BackOffice = () => {
 
     }
 
-    return <section className="back-office main-layout">
+    return <section className='back-office main-layout'>
         <div className='logout-button-wrapper'>
             <button onClick={logout}>התנתק</button>
         </div>
-        <div className="options-wrapper">
+        <div className='options-wrapper'>
             <Link to='/backoffice/info'>נתונים</Link>
             <Link to='/backoffice/question'>שאלות</Link>
         </div>
