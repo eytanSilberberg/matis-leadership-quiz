@@ -5,6 +5,7 @@ import { useNavigate, Link, Outlet } from "react-router-dom";
 export const BackOffice = () => {
     const navigate = useNavigate()
     useEffect(() => {
+        document.dir = 'rtl'
         const user = userService.getLoggedinUser()
         if (!user) {
             navigate('/login')

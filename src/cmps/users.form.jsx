@@ -26,8 +26,8 @@ export const UsersForm = ({ userInfo, isUserInfoOpen, onExitUsersForm }) => {
                     <li><span> {userInfo.scores.emotionalIndependency}</span><span>עצמאות רגשית</span></li>
                     <li><span>{userInfo.scores.creatibilityAndResilienceOfMind}</span><span>חוסן תודעתי</span></li>
                     <li><span>{userInfo.scores.creatibilityAndFocusOfConsciousness}</span><span>מיקוד תודעתי</span></li>
-                    <li><span>{userInfo.scores.responsibility}</span><span>אינטרני</span></li>
-                    <li><span>{userInfo.scores.responsibility}</span><span>אקסטרני</span></li>
+                    <li><span>{userInfo.scores.internal}</span><span>אינטרני</span></li>
+                    <li><span>{userInfo.scores.external}</span><span>אקסטרני</span></li>
                 </ul>
             </div>
         </>}
