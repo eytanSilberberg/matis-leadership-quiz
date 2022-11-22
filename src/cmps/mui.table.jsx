@@ -27,6 +27,7 @@ export const MuiTable = ({ forms, windowSize, onViewUsersForm }) => {
     };
 
 
+
     return (
         <Paper sx={{ width: '100%' }}>
             <TableContainer dir='rtl' sx={{ maxHeight: 440, overflowX: 'hidden' }}>
