@@ -46,8 +46,8 @@ export const MuiTable = ({ forms, windowSize, onViewUsersForm }) => {
                     <TableBody>
                         {forms
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map(form => {
-                                return <RowPreview windowSize={windowSize} form={form} key={form._id} onViewUsersForm={onViewUsersForm} />
+                            .map((form, idx) => {
+                                return <RowPreview isWithBackgroundColor={idx % 2 === 0 ? true : false} windowSize={windowSize} form={form} key={form._id} onViewUsersForm={onViewUsersForm} />
                             })}
                     </TableBody>
                 </Table>

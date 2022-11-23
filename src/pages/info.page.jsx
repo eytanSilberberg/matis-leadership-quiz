@@ -40,7 +40,8 @@ export const InfoPage = () => {
     }
 
     const getForms = async () => {
-        const requestedForms = await formService.query()
+        let requestedForms = await formService.query()
+        requestedForms = requestedForms.reverse()
         setForms(requestedForms)
     }
 

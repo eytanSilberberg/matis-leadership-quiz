@@ -6,9 +6,11 @@ import { makeDate } from "../services/basic/util.service";
 
 
 const cellStyling = { padding: { xs: 1.5, sm: 2, md: 2, lg: 4 }, minWidth: 30, fontSize: { xs: 13, sm: 13, md: 14 }, textAlign: 'center' }
-const rowStyling = { position: 'relative' }
 
-export const RowPreview = ({ form, windowSize, onViewUsersForm }) => {
+export const RowPreview = ({ form, windowSize, onViewUsersForm, isWithBackgroundColor }) => {
+    const backgroundColor = isWithBackgroundColor ? '#EEEEF0' : 'unset'
+
+    const rowStyling = { position: 'relative', backgroundColor }
     const dateFormatted = makeDate(form.dateFilled)
     return (
         <TableRow sx={{ ...rowStyling }}>
