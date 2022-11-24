@@ -12,6 +12,11 @@ const routes = [
         path: '/login',
         component: <LoginPage />,
         label: 'login',
+    },
+    {
+        path: '/v2',
+        component: <HomePage />,
+        label: 'test',
     }
 ]
 

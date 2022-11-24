@@ -1,9 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useRef } from "react";
 
 import { formService } from "../services/form/form.service";
 import { questionService } from "../services/questions/question.service"
+import { eventBusService, showErrorMsg } from "../services/basic/event-bus.service";
 
 import { Intro } from "../cmps/intro"
 import { Hero } from "../cmps/hero"
@@ -11,9 +11,9 @@ import { QuestionList } from "../cmps/questions.list.jsx"
 import { ContactForm } from "../cmps/contact.form.jsx"
 import { ProgressBar } from "../cmps/progress.bar.jsx"
 import { ThankYou } from "../cmps/thank.you.jsx"
+import { useLocation } from "react-router-dom";
 
-import { useRef } from "react";
-import { eventBusService, showErrorMsg } from "../services/basic/event-bus.service";
+
 import i18n from "../services/basic/i18n";
 import "/node_modules/flag-icons/css/flag-icons.min.css"
 
@@ -28,12 +28,17 @@ export const HomePage = () => {
     const [isAnswering, setIsAnswering] = useState(false)
     const [language, setLanguage] = useState('he')
     const [isLanguagePickerOpen, setLanguagePicker] = useState(false)
+    const location = useLocation()
 
+    const isV2Route = useRef(location.pathname === '/v2')
+    console.log(isV2Route.current);
     const questionsAnswered = useRef(0)
     const questionsSection = useRef()
     const renderCount = useRef(0)
 
     useEffect(() => {
+
+
         if (!renderCount.current) {
             renderCount.current++
             loadQuestionsToUse()
@@ -82,7 +87,7 @@ export const HomePage = () => {
             }
         }
 
-        const form = { scores, ...contactForm, dateFilled: currDate }
+        const form = { scores, ...contactForm, dateFilled: currDate, isV2Route: isV2Route.current }
         try {
             await formService.save(form)
         } catch (error) {
