@@ -31,7 +31,6 @@ export const HomePage = () => {
     const location = useLocation()
 
     const isV2Route = useRef(location.pathname === '/v2')
-    console.log(isV2Route.current);
     const questionsAnswered = useRef(0)
     const questionsSection = useRef()
     const renderCount = useRef(0)
