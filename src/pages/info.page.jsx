@@ -15,11 +15,11 @@ export const InfoPage = () => {
         getForms()
     }, [])
 
-    useEffect(() => {
-        window.addEventListener('resize', checkSize)
-        checkSize()
-        return () => window.removeEventListener('resize', checkSize)
-    }, [windowSize])
+    // useEffect(() => {
+    //     window.addEventListener('resize', checkSize)
+    //     checkSize()
+    //     return () => window.removeEventListener('resize', checkSize)
+    // }, [windowSize])
 
     const checkSize = () => {
         const windowWidth = window.innerWidth

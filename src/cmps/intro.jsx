@@ -14,19 +14,25 @@ export const Intro = ({ StartAnsweringForm, language }) => {
                 {t('intro_p1')}
                 <br />
                 <br />
+                {t('intro_p2')}
+                <br />
+                <br />
                 <strong>
-                    {t('intro_p2')}
+                    {t('intro_p3')}
                 </strong>
                 <br />
                 <br />
-                {t('intro_p3')}
+                {t('intro_p4')}
                 <br />
                 <br />
-            </p>
-            <p className='good-luck'>
                 {t('intro_goodLuck')}
                 <br />
-                {t('intro_p4')}
+                {t('intro_p5')}
+                <br />
+                <br />
+                {t('intro_p6')}
+                <br />
+                <br />
             </p>
             <button onClick={StartAnsweringForm}>{t('intro_button')}</button>
         </div>
